@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Thành viên nhóm - Nhóm [Tên nhóm]</title>
+    <style>
+        /* Tổng thể trang web */
+        body {
+            font-family: Arial, sans-serif;
+            line-height: 1.6;
+            background: #f4f4f9;
+            color: #333;
+            margin: 0;
+            padding: 0;
+        }
+        
+        /* Header */
+        header {
+            background: linear-gradient(to right, #6a11cb, #2575fc);
+            color: white;
+            text-align: center;
+            padding: 20px 0;
+        }
+        /* Navigation Menu */
+        nav {
+            background: #333;
+            padding: 10px 0;
+        }
+        
+        nav ul {
+            display: flex;
+            justify-content: center;
+            list-style: none;
+        }
+        
+        nav ul li {
+            margin: 0 15px;
+        }
+        
+        nav ul li a {
+            color: white;
+            text-decoration: none;
+            font-size: 1rem;
+            font-weight: bold;
+            padding: 5px 10px;
+            transition: background 0.3s ease, color 0.3s ease;
+        }
+        
+        nav ul li a:hover {
+            background: #2575fc;
+            color: white;
+            border-radius: 5px;
+        }
+        /* Members Section */
+.members {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 20px;
+    padding: 20px;
+    background: #f4f4f9;
+}
+
+.member-card {
+    background: white;
+    border-radius: 10px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    width: 250px;
+    text-align: center;
+    padding: 15px;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.member-card img {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+    border-radius: 10px;
+    margin-bottom: 10px;
+}
+
+.member-card h3 {
+    font-size: 1.5rem;
+    color: #333;
+    margin-bottom: 5px;
+}
+
+.member-card p {
+    font-size: 1rem;
+    color: #666;
+}
+
+.member-card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 6px 10px rgba(0, 0, 0, 0.2);
+}
+</style>
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <h1>THÀNH VIÊN NHÓM </h1>
+        <p>Những người bạn tuyệt vời trong nhóm</p>
+    </header>
+
+    <!-- Navigation -->
+    <nav>
+        <ul>
+            <li><a href="index.html">Trang chủ</a></li>
+            <li><a href="progress.html">Tiến độ</a></li>
+            <li><a href="gallery.html">Hình ảnh</a></li>
+            <li><a href="members.html">Thành viên</a></li>
+        </ul>
+    </nav>
+
+    <!-- Main content -->
+    <main>
+        <h2>Danh sách thành viên</h2>
+        <div class="members">
+            <!-- Thành viên 1 -->
+            <div class="member-card">
+                <img src="https://drive.google.com/file/d/1-o_-xSPeYgO3YRHCg5dp2fPRdYw5KbnY/">
+                <h3>Hoàng Vy</h3>
+                <p> Dựng Phim (Nhóm Trưởng)</p>
+            </div>
+
+            <!-- Thành viên 2 -->
+            <div class="member-card">
+                <img src="C:\anh\Picture2.png" alt="Ảnh thành viên 2">
+                <h3>Thanh Nhã</h3>
+                <p> Dựng Phim (Nhóm Phó)</p>
+            </div>
+
+            <!-- Thành viên 3 -->
+            <div class="member-card">
+                <img src="C:\anh\Picture3.png" alt="Ảnh thành viên 3">
+                <h3>Đình Nam</h3>
+                <p>Thu Thập Tư Liệu Ảnh</p>
+            </div>
+
+            <!-- Thành viên 4 -->
+            <div class="member-card">
+                <img src="C:\anh\Picture8.png" alt="Ảnh thành viên 4">
+                <h3>Ánh Dương</h3>
+                <p>Thu Thập Tư Liệu Ảnh</p>
+            </div>  
+
+            <!-- Thành viên 5 -->
+            <div class="member-card">
+                <img src="C:\anh\Picture4.png" alt="Ảnh thành viên 4">
+                <h3>Thanh Hải</h3>
+                <p>Viết Kịch Bản</p>
+            </div>
+
+            <!-- Thành viên 6 -->
+            <div class="member-card">
+                <img src="C:\anh\Picture6.png" alt="Ảnh thành viên 5">
+                <h3>Quỳnh Như</h3>
+                <p> Viết Kịch Bản</p>
+            </div>
+
+            <!-- Thành viên 7 -->
+            <div class="member-card">
+                <img src="C:\anh\Picture7.png" alt="Ảnh thành viên 6">
+                <h3>Hải Nguyên</h3>
+                <p>Biên Tập</p>
+            </div>
+ 
+             <!-- Thành viên 8 -->
+             <div class="member-card">
+                <img src="C:\anh\Picture5.png" at="Ảnh thành viên 8">
+                <h3>Tiến Bảo</h3>
+                <p>Phát Hành</p>
+            </div>
+        </div>
+    </main>
+</body>
+</html>

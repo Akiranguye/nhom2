@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hình ảnh kỷ yếu</title>
+    <style>
+        /* Tổng thể trang web */
+        body {
+            font-family: Arial, sans-serif;
+            line-height: 1.6;
+            background: #f4f4f9;
+            color: #333;
+            margin: 0;
+            padding: 0;
+        }
+        
+        /* Header */
+        header {
+            background: linear-gradient(to right, #6a11cb, #2575fc);
+            color: white;
+            text-align: center;
+            padding: 20px 0;
+        }
+        /* Navigation Menu */
+        nav {
+            background: #333;
+            padding: 10px 0;
+        }
+        
+        nav ul {
+            display: flex;
+            justify-content: center;
+            list-style: none;
+        }
+        
+        nav ul li {
+            margin: 0 15px;
+        }
+        
+        nav ul li a {
+            color: white;
+            text-decoration: none;
+            font-size: 1rem;
+            font-weight: bold;
+            padding: 5px 10px;
+            transition: background 0.3s ease, color 0.3s ease;
+        }
+        
+        nav ul li a:hover {
+            background: #2575fc;
+            color: white;
+            border-radius: 5px;
+        }
+    /* Gallery styles */
+        .gallery {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 10px;
+            margin-top: 10px;
+        }
+         img {
+    width: 1000px;
+    height: 600px;
+    object-fit: cover;
+    border-radius: 10px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.gallery img:hover {
+    transform: scale(1.1);
+    box-shadow: 0 6px 10px rgba(0, 0, 0, 0.2);
+}  
+        
+    </style>        
+</head>
+<body>
+    <header>
+        <h1>HÌNH ẢNH VÀ VIDEO KỈ YẾU</h1>
+        <p>Những khoảnh khắc đáng nhớ </p>
+    </header>
+    <nav>
+        <ul>
+            <li><a href="index.html">Trang chủ</a></li>
+            <li><a href="progress.html">Tiến độ</a></li>
+            <li><a href="gallery.html">Hình ảnh</a></li>
+            <li><a href="members.html">Thành viên</a></li>
+        </ul>
+    </nav>
+    <main>
+        <h2>Thư viện ảnh và video</h2>
+        <div class="gallery">
+            <video width="640" height="360" controls>
+                <source src="C:\anh\2.mp4"  type="video/mp4">
+                Trình duyệt của bạn không hỗ trợ thẻ video.
+              </video>
+        </div>
+        <div class="gallery">
+            <img src="C:\anh\A.jpg" alt="Khoảnh khắc 1">
+           
+      
+        </div>
+    </main>
+    
+</body>
+</html>

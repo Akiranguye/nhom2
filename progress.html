@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tiến độ dự án - Nhóm [Tên nhóm]</title>
+    <style>
+        /* Tổng thể trang web */
+        body {
+            font-family: Arial, sans-serif;
+            line-height: 1.6;
+            background: #f4f4f9;
+            color: #333;
+            margin: 0;
+            padding: 0;
+        }
+        
+        /* Header */
+        header {
+            background: linear-gradient(to right, #6a11cb, #2575fc);
+            color: white;
+            text-align: center;
+            padding: 20px 0;
+        }
+        /* Navigation Menu */
+        nav {
+            background: #333;
+            padding: 10px 0;
+        }
+        
+        nav ul {
+            display: flex;
+            justify-content: center;
+            list-style: none;
+        }
+        
+        nav ul li {
+            margin: 0 15px;
+        }
+        
+        nav ul li a {
+            color: white;
+            text-decoration: none;
+            font-size: 1rem;
+            font-weight: bold;
+            padding: 5px 10px;
+            transition: background 0.3s ease, color 0.3s ease;
+        }
+        
+        nav ul li a:hover {
+            background: #2575fc;
+            color: white;
+            border-radius: 5px;
+        }
+        /* Table styles */
+        .progress-table {
+            width: 80%;
+            margin: 20px auto;
+            border-collapse: collapse;
+            background: #f9f9ff;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            border-radius: 10px;
+            overflow: hidden;
+        }
+        
+        .progress-table thead {
+            background: #2575fc;
+            color: white;
+        }
+        
+        .progress-table th, .progress-table td {
+            padding: 15px;
+            text-align: left;
+            font-size: 1rem;
+            border-bottom: 1px solid #ddd;
+        }
+        
+        .progress-table tbody tr:hover {
+            background: #f1f1f1;
+        }
+        
+        .progress-table .status {
+            text-align: center;
+            font-weight: bold;
+            color: white;
+            border-radius: 5px;
+            padding: 5px 10px;
+        }
+        
+        .progress-table .status.complete {
+            background: #4caf50; /* Màu xanh lá */
+        }
+        
+        .progress-table .status.in-progress {
+            background: #ff9800; /* Màu cam */
+        }
+        
+        .progress-table .status.pending {
+            background: #f44336; /* Màu đỏ */
+        }
+        
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <h1>TIÊN ĐỘ DƯ ÁN </h1>
+        <p>Theo dõi các giai đoạn hoàn thành kỷ yếu.</p>
+    </header>
+
+    <!-- Navigation -->
+    <nav>
+        <ul>
+            <li><a href="index.html">Trang chủ</a></li>
+            <li><a href="progress.html">Tiến độ</a></li>
+            <li><a href="gallery.html">Hình ảnh</a></li>
+            <li><a href="members.html">Thành viên</a></li>
+        </ul>
+    </nav>
+
+    <!-- Main content -->
+    <main>
+        <h2>Lịch trình dự án</h2>
+        <div class="pdf-container">
+            <iframe src="file:///C:/Users/PC/Desktop/nhom2" width="100%" height="600px"></iframe>
+        </div>
+    </main>
+
+    
+</body>
+</html>
