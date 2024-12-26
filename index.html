@@ -177,13 +177,138 @@
     font-size: 1.2rem;
     margin: 10px 0 0;
 }
+/* Bong bóng chat */
+#chatBubble {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    z-index: 1000;
+}
+
+#chatBubble button {
+    background: #6a11cb;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    font-size: 1rem;
+    border-radius: 50px;
+    cursor: pointer;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+    transition: background 0.3s ease;
+}
+
+#chatBubble button:hover {
+    background: #2575fc;
+}
+
+/* Hộp chat */
+#chatBox {
+    display: none;
+    position: fixed;
+    bottom: 80px;
+    right: 20px;
+    background: white;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+    width: 300px;
+}
+
+#chatBox h3 {
+    color: #6a11cb;
+    margin-bottom: 10px;
+}
+
+#chatBox form label {
+    font-size: 0.9rem;
+    color: #555;
+}
+
+#chatBox form input, #chatBox form textarea {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 1rem;
+}
+
+#chatBox form button {
+    background: #2575fc;
+    color: white;
+    border: none;
+    padding: 10px;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background 0.3s ease;
+}
+
+#chatBox form button:hover {
+    background: #6a11cb;
+}
+
+#chatBox #closeChat {
+    background: transparent;
+    color: #6a11cb;
+    border: none;
+    font-size: 0.9rem;
+    cursor: pointer;
+    margin-top: 10px;
+}
+
+/* Thông báo cảm ơn */
+#thankYouMessage {
+    display: none;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background: linear-gradient(45deg, #6a11cb, #2575fc);
+    color: white;
+    padding: 30px;
+    border-radius: 15px;
+    text-align: center;
+    z-index: 1001;
+    animation: popUp 0.5s ease-out;
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3);
+}
+
+#thankYouMessage p {
+    margin: 0;
+    font-size: 2rem; /* Tăng kích thước chữ */
+    font-weight: bold;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5); /* Thêm hiệu ứng bóng chữ */
+}
+
+/* Hiệu ứng xuất hiện */
+@keyframes popUp {
+    0% {
+        transform: translate(-50%, -50%) scale(0.5);
+        opacity: 0;
+    }
+    100% {
+        transform: translate(-50%, -50%) scale(1);
+        opacity: 1;
+    }
+}
+#fireworksCanvas {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 999;
+    pointer-events: none;
+}
+
+
 
         </style>
 </head>
 <body>
     <header>
-        <h1>CHÀO MỪNG ĐẾN NHÓM 2</h1>
-        <h2>Hành trình kỷ yếu - Mãi nhớ về thanh xuân!!!</h2>
+          <h1>HÀNH TRÌNH ĐÁNG NHỚ</h1>
+        <h2>Kỷ yếu của chúng tôi - Kết nối và lưu giữ khoảnh khắc!</h2>
     </header>
     <nav>
         <ul>
@@ -200,6 +325,202 @@
             <p>Kỷ yếu và hành trình đáng nhớ❤️</p>  
         </div>
     </div>
-   
+    <div id="chatBubble">
+        <button id="openChat">💬 Gửi Lời Nhắn</button>
+        <div id="chatBox">
+            <h3>Gửi Lời Nhắn</h3>
+            <form id="messageForm">
+                <label for="name">Tên của bạn:</label>
+                <input type="text" id="name" name="name" placeholder="Nhập tên của bạn" required>
+                
+                <label for="message">Lời nhắn:</label>
+                <textarea id="message" name="message" placeholder="Viết lời nhắn tại đây..." required></textarea>
+                
+                <button type="submit">Gửi</button>
+            </form>
+            <button id="closeChat">Đóng</button>
+        </div>
+    </div>
+    <div id="thankYouMessage">
+        <p id="responseText"></p>
+    </div>
+    
+    <script>
+        const chatBubble = document.getElementById("chatBubble");
+        const chatBox = document.getElementById("chatBox");
+        const openChat = document.getElementById("openChat");
+        const closeChat = document.getElementById("closeChat");
+        const messageForm = document.getElementById("messageForm");
+        const thankYouMessage = document.getElementById("thankYouMessage");
+        const responseText = document.getElementById("responseText");
+    
+        // Mở hộp chat
+        openChat.addEventListener("click", () => {
+            chatBox.style.display = "block";
+        });
+    
+        // Đóng hộp chat
+        closeChat.addEventListener("click", () => {
+            chatBox.style.display = "none";
+        });
+    
+        // Xử lý gửi lời nhắn
+        messageForm.addEventListener("submit", (e) => {
+            e.preventDefault();
+            const name = document.getElementById("name").value;
+            const message = document.getElementById("message").value;
+    
+            // Hiển thị thông báo cảm ơn
+            responseText.innerText = `Cảm ơn, ${name}! Lời nhắn của bạn đã được gửi.`;
+            thankYouMessage.style.display = "block";
+    
+            // Ẩn hộp chat
+            chatBox.style.display = "none";
+    
+            // Tự động ẩn thông báo cảm ơn sau 3 giây
+            setTimeout(() => {
+                thankYouMessage.style.display = "none";
+            }, 3000);
+    
+            // Reset form
+            messageForm.reset();
+        });
+        // Xử lý gửi lời nhắn
+messageForm.addEventListener("submit", (e) => {
+    e.preventDefault();
+    const name = document.getElementById("name").value;
+
+    // Hiển thị thông báo cảm ơn
+    responseText.innerHTML = `🎉 Cảm ơn bạn <strong>${name}</strong>, vì đã gửi lời nhắn đến chúng tôi! ❤️`;
+
+    thankYouMessage.style.display = "block";
+
+    // Ẩn hộp chat
+    chatBox.style.display = "none";
+
+    // Tự động ẩn thông báo cảm ơn sau 3 giây
+    setTimeout(() => {
+        thankYouMessage.style.opacity = "0"; // Giảm opacity
+        setTimeout(() => {
+            thankYouMessage.style.display = "none"; // Ẩn hoàn toàn
+            thankYouMessage.style.opacity = "1"; // Reset opacity
+        }, 500); // Thời gian khớp với hiệu ứng CSS
+    }, 3000);
+
+    // Reset form
+    messageForm.reset();
+});
+
+    </script>
+    
+    <canvas id="fireworksCanvas"></canvas>
+
+    <script>
+        const canvas = document.getElementById('fireworksCanvas');
+        const ctx = canvas.getContext('2d');
+        canvas.width = window.innerWidth;
+        canvas.height = window.innerHeight;
+    
+        const fireworks = [];
+    
+        class Firework {
+            constructor(x, y, targetY, color) {
+                this.x = x;
+                this.y = y;
+                this.targetY = targetY; // Vị trí phát nổ
+                this.color = color;
+                this.particles = [];
+                this.hasExploded = false;
+            }
+    
+            createParticles() {
+                for (let i = 0; i < 50; i++) {
+                    this.particles.push({
+                        x: this.x,
+                        y: this.y,
+                        radius: Math.random() * 3 + 1,
+                        color: this.color,
+                        velocityX: (Math.random() - 0.5) * 6,
+                        velocityY: (Math.random() - 0.5) * 6,
+                        decay: 0.98
+                    });
+                }
+            }
+    
+            update() {
+                if (!this.hasExploded) {
+                    // Di chuyển pháo hoa lên trên
+                    this.y -= 4;
+    
+                    // Nếu đạt đến vị trí phát nổ, tạo các hạt pháo hoa
+                    if (this.y <= this.targetY) {
+                        this.hasExploded = true;
+                        this.createParticles();
+                    }
+                } else {
+                    // Cập nhật các hạt pháo hoa
+                    this.particles.forEach(p => {
+                        p.x += p.velocityX;
+                        p.y += p.velocityY;
+                        p.radius *= p.decay;
+                    });
+    
+                    // Loại bỏ các hạt nhỏ dần
+                    this.particles = this.particles.filter(p => p.radius > 0.2);
+                }
+            }
+    
+            draw() {
+                if (!this.hasExploded) {
+                    // Vẽ pháo hoa di chuyển lên
+                    ctx.beginPath();
+                    ctx.arc(this.x, this.y, 3, 0, Math.PI * 2);
+                    ctx.fillStyle = this.color;
+                    ctx.fill();
+                } else {
+                    // Vẽ các hạt pháo hoa sau khi phát nổ
+                    this.particles.forEach(p => {
+                        ctx.beginPath();
+                        ctx.arc(p.x, p.y, p.radius, 0, Math.PI * 2);
+                        ctx.fillStyle = p.color;
+                        ctx.fill();
+                    });
+                }
+            }
+        }
+    
+        function createRandomFirework() {
+            const x = Math.random() * canvas.width;
+            const targetY = Math.random() * canvas.height / 2; // Vị trí phát nổ ngẫu nhiên ở nửa trên
+            const color = `hsl(${Math.random() * 360}, 100%, 70%)`;
+            fireworks.push(new Firework(x, canvas.height, targetY, color));
+        }
+    
+        function animate() {
+            ctx.clearRect(0, 0, canvas.width, canvas.height);
+    
+            fireworks.forEach((firework, index) => {
+                firework.update();
+                firework.draw();
+    
+                // Loại bỏ pháo hoa sau khi tất cả hạt đã biến mất
+                if (firework.hasExploded && firework.particles.length === 0) {
+                    fireworks.splice(index, 1);
+                }
+            });
+    
+            requestAnimationFrame(animate);
+        }
+    
+        // Tạo pháo hoa ngẫu nhiên mỗi 0.6 giây
+        setInterval(createRandomFirework, 600);
+    
+        // Bắt đầu hiệu ứng
+        animate();
+    </script>
+    
+    
+
 </body>
+
 </html>
